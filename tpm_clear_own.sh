@@ -100,13 +100,12 @@ part2(){
 
     echo "***************************************************************"
     echo "***************************************************************"
-    echo "About to take ownership. Using the well-known password for the SRK."
+    echo "About to take ownership. Using the well-known password for the SRK and TPM."
     echo "This command will take a few seconds, please be patient."
     echo "***************************************************************"
     echo "***************************************************************"
 
-    echo "Enter a new owner password"
-    OWN_RESULT=$(tpm_takeownership -z 2>&1)
+    OWN_RESULT=$(tpm_takeownership -y -z 2>&1)
 
     if [[ "$?" != "0" ]]; then
         echo "Command failed."
